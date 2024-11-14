@@ -1,0 +1,5 @@
+flask 
+google-cloud-storage
+flask-login
+Pillow
+google-generativeai

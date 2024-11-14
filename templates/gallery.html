@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+            background-color: {{ background_color }};  /* Dynamically set background color */
+        }
+    </style>
+<head>
+    <title>Image Gallery</title>
+    <style>
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .gallery-item {
+            margin: 10px;
+            text-align: center;
+        }
+        .gallery-image {
+            max-width: 200px;
+            height: auto;
+        }
+        .caption {
+            margin-top: 5px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>These are the Uploaded Images to Google Cloud</h1>
+    <div class="gallery-container">
+        {% for name, image in image_data.items() %}
+            <div class="gallery-item">
+                <img class="gallery-image" src="{{ url_for('serve_image', filename=name.split('/')[-1]) }}" alt="{{ name }}">
+                <div class="caption">
+                    {% set caption_name = name + '.txt' %}
+                    {{ captions.get(caption_name, 'No caption available.') }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2>File List</h2>
+    <ul>
+        {% for name in image_data.keys() %}
+            <li><a href="{{ url_for('serve_image', filename=name.split('/')[-1]) }}">{{ name.split('/')[-1] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

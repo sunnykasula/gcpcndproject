@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<style>
+    body {
+        background-color: {{background_color}};  /* Dynamically set background color */
+    }
+</style>
+<html>
+<head>
+    <title>Upload image</title>
+</head>
+<body>
+    <h1>Upload image</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
