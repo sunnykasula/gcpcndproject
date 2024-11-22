@@ -89,6 +89,7 @@ def download_blob_into_memory(bucket_name, blob_name):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    login_background_color = "lightblue"  # Set the specific color for the login page
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -100,7 +101,7 @@ def login():
             return redirect(url_for('upload_file'))
         else:
             flash('Invalid username or password')
-    return render_template('login.html',background_color=background_color)
+    return render_template('login.html', background_color=login_background_color)
 
 @app.route('/logout')
 @login_required
