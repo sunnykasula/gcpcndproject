@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<style>
-    body {
-        background-color: {{background_color}};  /* Dynamically set background color */
-    }
-</style>
 <html>
 <head>
-    <title>Upload image</title>
+    <title>Upload Image</title>
+    <style>
+        body {
+            background-image: url('https://storage.cloud.google.com/img4542/11.jpg'); /* Hardcoded background image path */
+            background-size: cover; /* Ensure the image covers the entire page */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            background-position: center; /* Center the image on the page */
+        }
+    </style>
 </head>
 <body>
-    <h1>Upload image</h1>
+    <h1>Upload Image</h1>
     <form method="POST" enctype="multipart/form-data">
         <input type="file" name="file">
         <input type="submit" value="Upload">
