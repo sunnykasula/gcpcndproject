@@ -100,7 +100,7 @@ def login():
             return redirect(url_for('upload_file'))
         else:
             flash('Invalid username or password')
-    return render_template('login.html',background_color=background_color)
+    return render_template('login.html',background_color=lightblue)
 
 @app.route('/logout')
 @login_required
